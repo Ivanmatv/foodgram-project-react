@@ -1,13 +1,15 @@
 import csv
 import os
 
+from api_yamdb.settings import CSV_FILES_DIR
+
 from django.core.management import BaseCommand
 from django.db import IntegrityError
+
 from reviews.models import (
     Category, Comment, Genre, GenreTitle, Review, Title, User
 )
 
-from api_yamdb.settings import CSV_FILES_DIR
 
 FILES_CLASSES = {
     'category': Category,
