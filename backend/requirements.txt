@@ -22,7 +22,7 @@ packaging==22.0
 pandas==1.5.2
 pluggy==0.13.1
 py==1.11.0
-pycodestyle==2.10.0
+pycodestyle==2.9.1
 PyJWT==2.1.0
 pytest-pythonpath==0.7.3
 python-dateutil==2.8.2
