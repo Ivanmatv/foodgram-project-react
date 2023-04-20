@@ -1,7 +1,4 @@
-from colorfield.fields import ColorField
-
-from django.core.validators import (MaxValueValidator, MinValueValidator,
-                                    RegexValidator)
+from django.core.validators import (MaxValueValidator, MinValueValidator)
 from django.db import models
 from django.db.models import UniqueConstraint
 
@@ -40,17 +37,11 @@ class Tag(models.Model):
         db_index=True,
         unique=True
     )
-    color = ColorField(
-        verbose_name='HEX-код',
-        format='hex',
+    color = models.CharField(
+        verbose_name='Цвет',
         max_length=7,
         unique=True,
-        validators=[
-            RegexValidator(
-                regex="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-                message='Проверьте вводимый формат',
-            )
-        ],
+        db_index=False,
     )
     slug = models.SlugField(
         max_length=100,
