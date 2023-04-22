@@ -8,8 +8,10 @@ services:
       - ./.env
 
   backend:
-    image: ivanmatveev/foodgram_backend:latest
-    # build: ../api_yamdb/
+    # image: ivanmatveev/foodgram_backend:latest
+    build:
+      context: ../backend
+      dockerfile: Dockerfile
     restart: always
     volumes:
       - static_value:/app/static/
@@ -20,7 +22,7 @@ services:
       - .env
 
   frontend:
-    image: ivanmatveev/foodgram_frontend:latest
+    # image: ivanmatveev/foodgram_frontend:latest
     build:
       context: ../frontend
       dockerfile: Dockerfile
