@@ -46,12 +46,19 @@ pip install -r requirements.txt
 ```
 
 Применить миграции:
+```
+python manage.py makemigrations users
+```
+```
+python manage.py makemigrations recipes
+```
 
 ```
 python manage.py migrate
 ```
 
 ***- В папке с файлом manage.py выполните команду для запуска локально:***
+
 ```
 python manage.py runserver
 ```

@@ -8,6 +8,7 @@ from recipes.models import (Favorite, Ingredient, IngredientRecipe, Recipe,
 from rest_framework import serializers, status
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import SerializerMethodField
+from rest_framework.validators import UniqueTogetherValidator
 
 from users.models import User
 
@@ -153,6 +154,12 @@ class CreateRecipeSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'tags', 'author', 'ingredients',
             'name', 'image', 'text', 'cooking_time',)
+        # validators = [
+        #     UniqueTogetherValidator(
+        #         queryset=IngredientRecipe.objects.all(),
+        #         fields=['list', 'position']
+        #     )
+        # ]
 
     def validate_tags(self, tags):
         for tag in tags:
@@ -160,12 +167,6 @@ class CreateRecipeSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(
                     'Указанного тега не существует')
         return tags
-
-    # def validate_cooking_time(self, cooking_time):
-    #     if cooking_time < 1:
-    #         raise serializers.ValidationError(
-    #             'Время готовки должно быть не меньше одной минуты')
-    #     return cooking_time
 
     def validate_ingredients(self, ingredients):
         ingredients_list = []
