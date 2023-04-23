@@ -10,7 +10,7 @@ services:
   backend:
     image: ivanmatveev/foodgram_backend:latest
     build:
-      context: ../backend
+      context: ../backend/
       dockerfile: Dockerfile
     restart: always
     volumes:
@@ -24,7 +24,7 @@ services:
   frontend:
     image: ivanmatveev/foodgram_frontend:latest
     build:
-      context: ../frontend
+      context: ../frontend/
       dockerfile: Dockerfile
     volumes:
       - ../frontend/:/app/result_build/
