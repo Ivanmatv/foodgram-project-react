@@ -89,7 +89,7 @@ docker-compose exec backend python manage.py collectstatic --no-input
 
 Наполните базу данных ингредиентами и тегами. Выполняйте команду из дериктории где находится файл manage.py:
 ```
-docker-compose exec backend python manage.py load_csv_data
+python manage.py load_csv_data
 
 ```
 
