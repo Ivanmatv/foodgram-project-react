@@ -1,5 +1,7 @@
 from django.shortcuts import get_object_or_404
 
+from djoser.serializers import UserCreateSerializer, UserSerializer
+
 from drf_extra_fields.fields import Base64ImageField
 
 from recipes.models import (Favorite, Ingredient, IngredientRecipe, Recipe,
@@ -13,7 +15,7 @@ from rest_framework.validators import UniqueValidator
 from users.models import User
 
 
-class UserSerializer(serializers.ModelSerializer):
+class UserSerializer(UserSerializer):
     is_subscribed = SerializerMethodField(read_only=True)
 
     class Meta:
@@ -28,7 +30,7 @@ class UserSerializer(serializers.ModelSerializer):
         return obj.following.filter(user=request.user).exists()
 
 
-class UserCreateSerializer(serializers.ModelSerializer):
+class UserCreateSerializer(UserCreateSerializer):
     email = serializers.EmailField(
         validators=[UniqueValidator(queryset=User.objects.all())])
     username = serializers.CharField(
@@ -41,7 +43,7 @@ class UserCreateSerializer(serializers.ModelSerializer):
             'last_name', 'password')
 
 
-class SubscribeListSerializer(serializers.ModelSerializer):
+class SubscribeListSerializer(UserSerializer):
     recipes_count = SerializerMethodField()
     recipes = SerializerMethodField()
 

@@ -141,4 +141,6 @@ http://51.250.15.168/api/users/subscriptions/ - Получение списка 
 
 https://github.com/Ivanmatv - Иван Матвеев
 
-feast@yandex.ru matveev1
+админка
+Адрес электронной почты: ivan@gmail.com
+пароль matveev1
