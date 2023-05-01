@@ -8,11 +8,13 @@ from recipes.models import (Favorite, Ingredient, IngredientRecipe, Recipe,
 from rest_framework import serializers, status
 from rest_framework.exceptions import ValidationError
 from rest_framework.fields import SerializerMethodField
+from rest_framework.validators import UniqueValidator
 
 from users.models import User
 
 
 class UserSerializer(serializers.ModelSerializer):
+    is_subscribed = SerializerMethodField(read_only=True)
 
     class Meta:
         model = User
@@ -27,6 +29,10 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class UserCreateSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(
+        validators=[UniqueValidator(queryset=User.objects.all())])
+    username = serializers.CharField(
+        validators=[UniqueValidator(queryset=User.objects.all())])
 
     class Meta:
         model = User
@@ -153,12 +159,6 @@ class CreateRecipeSerializer(serializers.ModelSerializer):
         fields = (
             'id', 'tags', 'author', 'ingredients',
             'name', 'image', 'text', 'cooking_time',)
-        # validators = [
-        #     UniqueTogetherValidator(
-        #         queryset=IngredientRecipe.objects.all(),
-        #         fields=['list', 'position']
-        #     )
-        # ]
 
     def validate_tags(self, tags):
         for tag in tags:

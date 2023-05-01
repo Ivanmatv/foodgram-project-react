@@ -1,5 +1,5 @@
 # api_yamdb
-![yamdb_workflow](https://github.com/Ivanmatv/foodgram-project-react/actions/workflows/yamdb_workflow.yml/badge.svg)
+![yamdb_workflow](https://github.com/Ivanmatv/foodgram-project-react/actions/workflows/foodfram_workflow.yml/badge.svg)
 
 ### Опиание проекта.
 Cайт Foodgram - «Продуктовый помощник». На этом сервисе пользователи смогут публиковать рецепты блюд, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», а перед походом в магазин скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд.
@@ -74,7 +74,7 @@ docker-compose up -d --build
 Выполнить миграции:
 
 ``` 
-docker-compose exec web python manage.py migrate 
+docker-compose exec backend python manage.py migrate 
 ```
 
 Создайте суперпользователя:
@@ -141,7 +141,4 @@ http://51.250.15.168/api/users/subscriptions/ - Получение списка 
 
 https://github.com/Ivanmatv - Иван Матвеев
 
-https://github.com/nikitaloskutov18 - Никита Лоскутов
-
-https://github.com/Tilorn23 - Алексей Еремеев
-
+feast@yandex.ru matveev1
