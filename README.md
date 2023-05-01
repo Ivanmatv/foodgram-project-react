@@ -1,5 +1,5 @@
 # api_yamdb
-![yamdb_workflow](https://github.com/Ivanmatv/foodgram-project-react/actions/workflows/foodfram_workflow.yml/badge.svg)
+![yamdb_workflow](https://github.com/Ivanmatv/foodgram-project-react/actions/workflows/foodgram_workflow.yml/badge.svg)
 
 ### Опиание проекта.
 Cайт Foodgram - «Продуктовый помощник». На этом сервисе пользователи смогут публиковать рецепты блюд, подписываться на публикации других пользователей, добавлять понравившиеся рецепты в список «Избранное», а перед походом в магазин скачивать сводный список продуктов, необходимых для приготовления одного или нескольких выбранных блюд.
