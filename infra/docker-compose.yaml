@@ -11,7 +11,7 @@ services:
     image: ivanmatveev/foodgram_backend:latest
     build:
       context: ../backend/
-      dockerfile: Dockerfile
+      file: Dockerfile
     restart: always
     volumes:
       - static_value:/app/static/
@@ -25,7 +25,7 @@ services:
     image: ivanmatveev/foodgram_frontend:latest
     build:
       context: ../frontend/
-      dockerfile: Dockerfile
+      file: Dockerfile
     volumes:
       - ../frontend/:/app/result_build/
     depends_on:
